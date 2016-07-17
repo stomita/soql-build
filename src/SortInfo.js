@@ -1,0 +1,36 @@
+/* @flow */
+import QueryElement from './QueryElement';
+import Field from './Field';
+
+export type SortInfoConfig = {
+  field: string,
+  direction: ?string,
+  nullOrder: ?string,
+};
+
+export default class SortInfo extends QueryElement {
+  field: Field;
+  direction: ?string;
+  nullOrder: ?string;
+  constructor(config: SortInfoConfig, baseObjectName: string) {
+    super();
+    this.field = new Field(config.field, baseObjectName);
+    this.direction = config.direction;
+    this.nullOrder = config.nullOrder;
+  }
+  toSOQL() {
+    return [
+      this.field.toSOQL(),
+      ...(
+        this.direction != null ?
+        [ this.direction.toUpperCase() ] :
+        []
+      ),
+      ...(
+        this.nullOrder != null ?
+        [ 'NULLS', this.nullOrder.toUpperCase() ] :
+        []
+      ),
+    ].join(' ');
+  }
+}

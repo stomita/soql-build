@@ -1,0 +1,10 @@
+{
+  "presets": [
+    "es2015",
+    "stage-1",
+    "power-assert"
+  ],
+  "plugins": [
+    "transform-flow-strip-types"
+  ]
+}
