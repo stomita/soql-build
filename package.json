@@ -1,8 +1,8 @@
 {
   "name": "soql-build",
   "version": "1.0.0",
-  "description": "Securely build SOQL from JSON-based query structure",
-  "main": "index.js",
+  "description": "Securely build SOQL string from JSON-based query structure",
+  "main": "lib/index.js",
   "scripts": {
     "build": "babel -d lib/ src/",
     "flow": "flow",
@@ -10,6 +10,13 @@
   },
   "author": "Shinichi Tomita <shinichi.tomita@gmail.com>",
   "license": "MIT",
+  "files": [
+    ".babelrc",
+    ".flowconfig",
+    "flow-typed",
+    "lib",
+    "src"
+  ],
   "devDependencies": {
     "babel-cli": "^6.10.1",
     "babel-plugin-transform-flow-strip-types": "^6.8.0",
