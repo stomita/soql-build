@@ -12,10 +12,10 @@ import type { SortInfoConfig } from './SortInfo';
 export type QueryConfig = {
   fields: Array<string>,
   table: string,
-  condition: ?ConditionConfig,
-  sortInfo: ?Array<SortInfoConfig>,
-  limit: ?number,
-  offset: ?number,
+  condition?: ConditionConfig,
+  sortInfo?: Array<SortInfoConfig>,
+  limit?: number,
+  offset?: number,
 };
 
 export default class Query extends QueryElement {

@@ -1,13 +1,15 @@
 /* @flow */
 import QueryElement from './QueryElement';
 
+import type { OperandConfig } from './Operand';
+
 export type AndConditionConfig = {
   operator: "AND",
   conditions: Array<ConditionConfig>,
 };
 
 export type OrConditionConfig = {
-  operator: "AND",
+  operator: "OR",
   conditions: Array<ConditionConfig>,
 };
 
@@ -19,7 +21,7 @@ export type NegateConditionConfig = {
 export type SingleConditionConfig = {
   operator: "=" | "!=" | "<" | "<=" | ">=" | ">" | "LIKE" | "IN" | "NOT IN",
   field: string,
-  value: any,
+  value: OperandConfig,
 };
 
 export type CompositeConditionConfig = AndConditionConfig | OrConditionConfig;

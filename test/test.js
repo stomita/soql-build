@@ -1,3 +1,5 @@
+/* @flow */
+
 import assert from 'power-assert';
 
 import { buildSOQL } from '../src';
