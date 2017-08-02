@@ -7,3 +7,7 @@ import type { ConditionConfig } from './Condition';
 export function buildSOQL(query: QueryConfig) {
   return new Query(query).toSOQL();
 }
+
+export type { QueryConfig, ConditionConfig };
+
+export { Query };
