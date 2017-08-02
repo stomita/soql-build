@@ -10,7 +10,7 @@
     "flow": "flow",
     "lint": "eslint src/ test/",
     "test": "npm run flow && npm run test:mocha",
-    "test:mocha": "mocha --compilers js:babel-register"
+    "test:mocha": "NODE_ENV=test mocha --compilers js:babel-register"
   },
   "author": "Shinichi Tomita <shinichi.tomita@gmail.com>",
   "license": "MIT",
