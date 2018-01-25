@@ -4,8 +4,8 @@ import Field from './Field';
 
 export type SortInfoConfig = {
   field: string,
-  direction?: string,
-  nullOrder?: string,
+  direction?: "ASC" | "DESC",
+  nullOrder?: "FIRST" | "LAST",
 };
 
 export default class SortInfo extends QueryElement {
