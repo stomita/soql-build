@@ -3,13 +3,8 @@ import QueryElement from './QueryElement';
 
 import type { OperandConfig } from './Operand';
 
-export type AndConditionConfig = {
-  operator: "AND",
-  conditions: Array<ConditionConfig>,
-};
-
-export type OrConditionConfig = {
-  operator: "OR",
+export type CompositeConditionConfig = {
+  operator: "AND" | "OR",
   conditions: Array<ConditionConfig>,
 };
 
@@ -23,8 +18,6 @@ export type SingleConditionConfig = {
   field: string,
   value: OperandConfig,
 };
-
-export type CompositeConditionConfig = AndConditionConfig | OrConditionConfig;
 
 export type ConditionConfig = CompositeConditionConfig | NegateConditionConfig | SingleConditionConfig;
 
