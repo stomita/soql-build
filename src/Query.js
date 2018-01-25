@@ -12,6 +12,7 @@ import type { SortInfoConfig } from './SortInfo';
 export type QueryConfig = {
   fields: Array<string>,
   table: string,
+  scope?: string,
   condition?: ConditionConfig,
   sortInfo?: Array<SortInfoConfig>,
   limit?: number,
@@ -21,6 +22,7 @@ export type QueryConfig = {
 export default class Query extends QueryElement {
   fields: Array<Field>;
   table: string;
+  scope: ?string;
   condition: ?Condition;
   sortInfo: ?Array<SortInfo>;
   limit: ?number;
@@ -29,6 +31,7 @@ export default class Query extends QueryElement {
   constructor(config: QueryConfig) {
     super();
     this.table = config.table;
+    this.scope = config.scope;
     this.fields = (config.fields || []).map((field) => new Field(field, this.table));
     if (config.condition) {
       this.condition = buildCondition(config.condition, this.table, true);
@@ -46,6 +49,7 @@ export default class Query extends QueryElement {
       this.fields.map((field) => field.toSOQL()).join(', '),
       'FROM',
       this.table,
+      ...(this.scope ? [ 'USING SCOPE', this.scope ] : []),
       ...(this.condition ? [ 'WHERE', this.condition.toSOQL() ] : []),
       ...(
         this.sortInfo && this.sortInfo.length > 0 ?
