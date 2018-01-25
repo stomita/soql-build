@@ -1,6 +1,6 @@
 {
   "name": "soql-build",
-  "version": "1.2.3",
+  "version": "1.2.4",
   "description": "Securely build SOQL string from JSON-based query structure",
   "main": "lib/index.js",
   "scripts": {
