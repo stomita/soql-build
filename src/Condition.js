@@ -19,7 +19,7 @@ export type NegateConditionConfig = {
 };
 
 export type SingleConditionConfig = {
-  operator: "=" | "!=" | "<" | "<=" | ">=" | ">" | "LIKE" | "IN" | "NOT IN",
+  operator: "=" | "!=" | "<" | "<=" | ">=" | ">" | "LIKE" | "IN" | "NOT IN" | "EXCLUDES" | "INCLUDES",
   field: string,
   value: OperandConfig,
 };
