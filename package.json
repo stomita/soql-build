@@ -6,7 +6,7 @@
   "types": "lib/index.d.ts",
   "scripts": {
     "build": "npm run build:lib && npm run build:types",
-    "build:lib": "babel -d lib/ src/",
+    "build:lib": "babel -x .ts -d lib/ src/",
     "build:types": "tsc --project tsconfig.dts.json",
     "typecheck": "tsc --noEmit",
     "lint": "eslint --ext .ts src/ test/",
