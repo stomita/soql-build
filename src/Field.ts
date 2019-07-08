@@ -1,16 +1,24 @@
 import QueryElement from "./QueryElement";
+import { ConditionConfig } from "./Condition";
+import { SortInfoConfig } from "./SortInfo";
 
-export default class Field extends QueryElement {
-  path: string[];
-  table: string;
+export type FunctionFieldConfig = {
+  type: "function";
+  function: string;
+  alias?: string;
+  arguments?: FieldConfig[];
+};
 
-  constructor(field: string, table: string) {
-    super();
-    this.path = field.split(".");
-    this.table = table;
-  }
+export type SubqueryFieldConfig = {
+  type: "subquery";
+  fields: FieldConfig[];
+  relationship: string;
+  condition?: ConditionConfig;
+  sortInfo?: SortInfoConfig[];
+  limit?: number;
+  offset?: number;
+};
 
-  toSOQL(): string {
-    return this.path.join(".");
-  }
-}
+export type FieldConfig = string | FunctionFieldConfig | SubqueryFieldConfig;
+
+export default class Field extends QueryElement {}

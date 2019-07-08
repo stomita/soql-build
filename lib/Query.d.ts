@@ -1,9 +1,7 @@
 import QueryElement from "./QueryElement";
 import Field from "./Field";
-import Condition from "./Condition";
-import SortInfo from "./SortInfo";
-import { ConditionConfig } from "./Condition";
-import { SortInfoConfig } from "./SortInfo";
+import Condition, { ConditionConfig } from "./Condition";
+import SortInfo, { SortInfoConfig } from "./SortInfo";
 export declare type QueryConfig = {
     fields: string[];
     table: string;

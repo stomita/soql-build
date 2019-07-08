@@ -2,10 +2,17 @@ import Condition from "./Condition";
 import buildCondition from "./buildCondition";
 import { CompositeConditionConfig } from "./Condition";
 
+/**
+ *
+ */
 export default class CompositeCondition extends Condition {
   operator: "AND" | "OR";
   conditions: Condition[];
   stripParens: boolean;
+
+  /**
+   *
+   */
   constructor(
     config: CompositeConditionConfig,
     baseObjectName: string,
@@ -18,6 +25,10 @@ export default class CompositeCondition extends Condition {
     );
     this.stripParens = stripParens;
   }
+
+  /**
+   *
+   */
   toSOQL() {
     const condition = this.conditions
       .map(c => c.toSOQL())

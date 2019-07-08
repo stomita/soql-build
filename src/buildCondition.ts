@@ -4,6 +4,9 @@ import NegateCondition from "./NegateCondition";
 import CompositeCondition from "./CompositeCondition";
 import { ConditionConfig, SingleConditionConfig } from "./Condition";
 
+/**
+ *
+ */
 export default function buildCondition(
   config: ConditionConfig,
   baseObjectName: string,

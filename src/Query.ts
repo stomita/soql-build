@@ -1,15 +1,15 @@
 import QueryElement from "./QueryElement";
-import Field from "./Field";
-import Condition from "./Condition";
-import SortInfo from "./SortInfo";
-
+import Field, { FieldConfig } from "./Field";
+import Condition, { ConditionConfig } from "./Condition";
+import SortInfo, { SortInfoConfig } from "./SortInfo";
 import buildCondition from "./buildCondition";
+import buildField from "./buildField";
 
-import { ConditionConfig } from "./Condition";
-import { SortInfoConfig } from "./SortInfo";
-
+/**
+ *
+ */
 export type QueryConfig = {
-  fields: string[];
+  fields: FieldConfig[];
   table: string;
   scope?: string;
   condition?: ConditionConfig;
@@ -18,6 +18,9 @@ export type QueryConfig = {
   offset?: number;
 };
 
+/**
+ *
+ */
 export default class Query extends QueryElement {
   fields: Field[];
   table: string;
@@ -27,12 +30,15 @@ export default class Query extends QueryElement {
   limit: number | undefined;
   offset: number | undefined;
 
+  /**
+   *
+   */
   constructor(config: QueryConfig) {
     super();
     this.table = config.table;
     this.scope = config.scope;
-    this.fields = (config.fields || []).map(
-      field => new Field(field, this.table)
+    this.fields = (config.fields || []).map(field =>
+      buildField(field, this.table)
     );
     if (config.condition) {
       this.condition = buildCondition(config.condition, this.table, true);
@@ -44,7 +50,10 @@ export default class Query extends QueryElement {
     this.offset = config.offset;
   }
 
-  toSOQL(): string {
+  /**
+   *
+   */
+  toSOQL() {
     return [
       "SELECT",
       this.fields.map(field => field.toSOQL()).join(", "),
