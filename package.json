@@ -3,10 +3,12 @@
   "version": "1.2.4",
   "description": "Securely build SOQL string from JSON-based query structure",
   "main": "lib/index.js",
+  "module": "module/index.js",
   "types": "lib/index.d.ts",
   "scripts": {
-    "build": "npm run build:lib && npm run build:types",
-    "build:lib": "babel -x .ts -d lib/ src/",
+    "build": "run-p build:*",
+    "build:lib": "babel src -x .ts -d lib --source-maps inline",
+    "build:module": "BUILD_TARGET=module babel src -x .ts -d module --source-maps inline",
     "build:types": "tsc --project tsconfig.dts.json",
     "typecheck": "tsc --noEmit",
     "lint": "eslint --ext .ts src/ test/",
@@ -30,6 +32,7 @@
     "eslint-plugin-prettier": "^3.1.0",
     "jest": "^24.8.0",
     "mocha": "^5.0.0",
+    "npm-run-all": "^4.1.5",
     "prettier": "^1.18.2",
     "typescript": "^3.5.2"
   }

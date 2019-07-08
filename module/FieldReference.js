@@ -1,14 +1,3 @@
-"use strict";
-
-Object.defineProperty(exports, "__esModule", {
-  value: true
-});
-exports["default"] = void 0;
-
-var _Field2 = _interopRequireDefault(require("./Field"));
-
-function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { "default": obj }; }
-
 function _typeof(obj) { if (typeof Symbol === "function" && typeof Symbol.iterator === "symbol") { _typeof = function _typeof(obj) { return typeof obj; }; } else { _typeof = function _typeof(obj) { return obj && typeof Symbol === "function" && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj; }; } return _typeof(obj); }
 
 function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
@@ -26,6 +15,8 @@ function _getPrototypeOf(o) { _getPrototypeOf = Object.setPrototypeOf ? Object.g
 function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function"); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, writable: true, configurable: true } }); if (superClass) _setPrototypeOf(subClass, superClass); }
 
 function _setPrototypeOf(o, p) { _setPrototypeOf = Object.setPrototypeOf || function _setPrototypeOf(o, p) { o.__proto__ = p; return o; }; return _setPrototypeOf(o, p); }
+
+import Field from "./Field";
 
 var FieldReference =
 /*#__PURE__*/
@@ -50,7 +41,7 @@ function (_Field) {
   }]);
 
   return FieldReference;
-}(_Field2["default"]);
+}(Field);
 
-exports["default"] = FieldReference;
-//# sourceMappingURL=data:application/json;charset=utf-8;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbIi4uL3NyYy9GaWVsZFJlZmVyZW5jZS50cyJdLCJuYW1lcyI6WyJGaWVsZFJlZmVyZW5jZSIsImZpZWxkIiwiX2Jhc2VPYmplY3ROYW1lIiwicGF0aCIsInNwbGl0Iiwiam9pbiIsIkZpZWxkIl0sIm1hcHBpbmdzIjoiOzs7Ozs7O0FBQUE7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7SUFFcUJBLGM7Ozs7O0FBR25CLDBCQUFZQyxLQUFaLEVBQTJCQyxlQUEzQixFQUFvRDtBQUFBOztBQUFBOztBQUNsRDtBQUNBLFVBQUtDLElBQUwsR0FBWUYsS0FBSyxDQUFDRyxLQUFOLENBQVksR0FBWixDQUFaO0FBRmtEO0FBR25EOzs7OzZCQUVRO0FBQ1AsYUFBTyxLQUFLRCxJQUFMLENBQVVFLElBQVYsQ0FBZSxHQUFmLENBQVA7QUFDRDs7OztFQVZ5Q0Msa0IiLCJzb3VyY2VzQ29udGVudCI6WyJpbXBvcnQgRmllbGQgZnJvbSBcIi4vRmllbGRcIjtcblxuZXhwb3J0IGRlZmF1bHQgY2xhc3MgRmllbGRSZWZlcmVuY2UgZXh0ZW5kcyBGaWVsZCB7XG4gIHBhdGg6IHN0cmluZ1tdO1xuXG4gIGNvbnN0cnVjdG9yKGZpZWxkOiBzdHJpbmcsIF9iYXNlT2JqZWN0TmFtZTogc3RyaW5nKSB7XG4gICAgc3VwZXIoKTtcbiAgICB0aGlzLnBhdGggPSBmaWVsZC5zcGxpdChcIi5cIik7XG4gIH1cblxuICB0b1NPUUwoKSB7XG4gICAgcmV0dXJuIHRoaXMucGF0aC5qb2luKFwiLlwiKTtcbiAgfVxufVxuIl19
+export { FieldReference as default };
+//# sourceMappingURL=data:application/json;charset=utf-8;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbIi4uL3NyYy9GaWVsZFJlZmVyZW5jZS50cyJdLCJuYW1lcyI6WyJGaWVsZCIsIkZpZWxkUmVmZXJlbmNlIiwiZmllbGQiLCJfYmFzZU9iamVjdE5hbWUiLCJwYXRoIiwic3BsaXQiLCJqb2luIl0sIm1hcHBpbmdzIjoiOzs7Ozs7Ozs7Ozs7Ozs7Ozs7QUFBQSxPQUFPQSxLQUFQLE1BQWtCLFNBQWxCOztJQUVxQkMsYzs7Ozs7QUFHbkIsMEJBQVlDLEtBQVosRUFBMkJDLGVBQTNCLEVBQW9EO0FBQUE7O0FBQUE7O0FBQ2xEO0FBQ0EsVUFBS0MsSUFBTCxHQUFZRixLQUFLLENBQUNHLEtBQU4sQ0FBWSxHQUFaLENBQVo7QUFGa0Q7QUFHbkQ7Ozs7NkJBRVE7QUFDUCxhQUFPLEtBQUtELElBQUwsQ0FBVUUsSUFBVixDQUFlLEdBQWYsQ0FBUDtBQUNEOzs7O0VBVnlDTixLOztTQUF2QkMsYyIsInNvdXJjZXNDb250ZW50IjpbImltcG9ydCBGaWVsZCBmcm9tIFwiLi9GaWVsZFwiO1xuXG5leHBvcnQgZGVmYXVsdCBjbGFzcyBGaWVsZFJlZmVyZW5jZSBleHRlbmRzIEZpZWxkIHtcbiAgcGF0aDogc3RyaW5nW107XG5cbiAgY29uc3RydWN0b3IoZmllbGQ6IHN0cmluZywgX2Jhc2VPYmplY3ROYW1lOiBzdHJpbmcpIHtcbiAgICBzdXBlcigpO1xuICAgIHRoaXMucGF0aCA9IGZpZWxkLnNwbGl0KFwiLlwiKTtcbiAgfVxuXG4gIHRvU09RTCgpIHtcbiAgICByZXR1cm4gdGhpcy5wYXRoLmpvaW4oXCIuXCIpO1xuICB9XG59XG4iXX0=
