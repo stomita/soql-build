@@ -1,8 +1,7 @@
-/* @flow */
-import Condition from './Condition';
-import Field from './Field';
-import Operand, { createOperand } from './Operand';
-import type { SingleConditionConfig } from './Condition';
+import Condition from "./Condition";
+import Field from "./Field";
+import Operand, { createOperand } from "./Operand";
+import { SingleConditionConfig } from "./Condition";
 
 export default class SingleCondition extends Condition {
   operator: string;
@@ -13,10 +12,14 @@ export default class SingleCondition extends Condition {
     this.operator = config.operator;
     this.field = new Field(config.field, baseObjectName);
     const value = createOperand(config.value);
-    if (value == null) { throw new Error(); }
+    if (value == null) {
+      throw new Error();
+    }
     this.value = value;
   }
   toSOQL() {
-    return this.field.toSOQL() + ' ' + this.operator + ' ' + this.value.toSOQL();
+    return (
+      this.field.toSOQL() + " " + this.operator + " " + this.value.toSOQL()
+    );
   }
 }
