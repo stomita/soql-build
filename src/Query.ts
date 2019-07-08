@@ -2,6 +2,7 @@ import QueryElement from "./QueryElement";
 import Field, { FieldConfig } from "./Field";
 import Condition, { ConditionConfig } from "./Condition";
 import SortInfo, { SortInfoConfig } from "./SortInfo";
+import Grouping, { GroupingConfig } from "./Grouping";
 import buildCondition from "./buildCondition";
 import buildField from "./buildField";
 
@@ -14,6 +15,7 @@ export type QueryConfig = {
   scope?: string;
   condition?: ConditionConfig;
   sortInfo?: SortInfoConfig[];
+  grouping?: GroupingConfig;
   limit?: number;
   offset?: number;
 };
@@ -27,6 +29,7 @@ export default class Query extends QueryElement {
   scope: string | undefined;
   condition: Condition | undefined;
   sortInfo: SortInfo[] | undefined;
+  grouping: Grouping | undefined;
   limit: number | undefined;
   offset: number | undefined;
 
@@ -46,6 +49,9 @@ export default class Query extends QueryElement {
     if (config.sortInfo) {
       this.sortInfo = config.sortInfo.map(s => new SortInfo(s, this.table));
     }
+    if (config.grouping) {
+      this.grouping = new Grouping(config.grouping, this.table);
+    }
     this.limit = config.limit;
     this.offset = config.offset;
   }
@@ -64,6 +70,7 @@ export default class Query extends QueryElement {
       ...(this.sortInfo && this.sortInfo.length > 0
         ? ["ORDER BY", this.sortInfo.map(s => s.toSOQL()).join(", ")]
         : []),
+      ...(this.grouping ? [this.grouping.toSOQL()] : []),
       ...(typeof this.limit !== "undefined"
         ? ["LIMIT", String(this.limit)]
         : []),

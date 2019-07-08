@@ -151,4 +151,41 @@ describe("soql-builder", () => {
     const soql = buildSOQL(query);
     expect(soql).toBe(expectedSOQL);
   });
+
+  it("should generate valid soql string for grouping query", () => {
+    const query: QueryConfig = {
+      fields: [
+        {
+          type: "function",
+          function: "MAX",
+          arguments: ["CreatedDate"]
+        }
+      ],
+      table: "Account",
+      grouping: {
+        fields: ["Type", "Industry"],
+        subtotal: "ROLLUP",
+        having: {
+          field: {
+            type: "function",
+            function: "MAX",
+            arguments: ["CreatedDate"]
+          },
+          operator: "<=",
+          value: {
+            type: "date",
+            value: "LAST_YEAR"
+          }
+        }
+      }
+    };
+    const expectedSOQL =
+      "SELECT MAX(CreatedDate) " +
+      "FROM Account " +
+      "GROUP BY ROLLUP (Type, Industry) " +
+      "HAVING MAX(CreatedDate) <= LAST_YEAR";
+
+    const soql = buildSOQL(query);
+    expect(soql).toBe(expectedSOQL);
+  });
 });

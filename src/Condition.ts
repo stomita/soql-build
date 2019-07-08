@@ -1,5 +1,6 @@
 import QueryElement from "./QueryElement";
 import { OperandConfig } from "./Operand";
+import { FieldConfig } from "./Field";
 
 /**
  *
@@ -33,7 +34,7 @@ export type SingleConditionConfig = {
     | "NOT IN"
     | "EXCLUDES"
     | "INCLUDES";
-  field: string;
+  field: FieldConfig;
   value: OperandConfig;
 };
 
