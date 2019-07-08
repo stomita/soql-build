@@ -1,7 +1,0 @@
-{
-  "parser": "babel-eslint",
-  "plugins": ["flowtype"],
-  "parserOptions": {
-    "sourceType": "module"
-  }
-}
