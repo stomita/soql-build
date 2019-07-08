@@ -3,7 +3,42 @@ import { buildSOQL, QueryConfig } from "../src";
 describe("soql-builder", () => {
   it("should generate valid soql string", () => {
     const query: QueryConfig = {
-      fields: ["Id", "Name", "Account.Id", "Account.Name"],
+      fields: [
+        "Id",
+        "Name",
+        "Account.Id",
+        "Account.Name",
+        {
+          type: "function",
+          function: "CALENDAR_YEAR",
+          arguments: ["CloseDate"]
+        },
+        {
+          type: "subquery",
+          fields: [
+            "Id",
+            "Subject",
+            {
+              type: "function",
+              function: "toLabel",
+              arguments: ["Status"]
+            }
+          ],
+          relationship: "ActivityHistories",
+          condition: {
+            operator: "=",
+            field: "IsTask",
+            value: true
+          },
+          sortInfo: [
+            {
+              field: "ActivityDate",
+              direction: "DESC"
+            }
+          ],
+          limit: 5
+        }
+      ],
       table: "Opportunity",
       condition: {
         operator: "AND",
@@ -80,11 +115,18 @@ describe("soql-builder", () => {
           direction: "DESC"
         }
       ],
-      limit: 1000
+      limit: 1000,
+      offset: 50
     };
 
     const expectedSOQL =
-      "SELECT Id, Name, Account.Id, Account.Name " +
+      "SELECT Id, Name, Account.Id, Account.Name, CALENDAR_YEAR(CloseDate), " +
+      "(SELECT Id, Subject, toLabel(Status) " +
+      "FROM ActivityHistories " +
+      "WHERE IsTask = true " +
+      "ORDER BY ActivityDate DESC " +
+      "LIMIT 5" +
+      ") " +
       "FROM Opportunity " +
       "WHERE " +
       "(NOT Account.Name LIKE '%a%') " +
@@ -103,7 +145,8 @@ describe("soql-builder", () => {
       "(CloseDate >= 2008-01-01 AND CloseDate < TODAY)" +
       ") " +
       "ORDER BY Account.Type ASC NULLS LAST, Amount DESC " +
-      "LIMIT 1000";
+      "LIMIT 1000 " +
+      "OFFSET 50";
 
     const soql = buildSOQL(query);
     expect(soql).toBe(expectedSOQL);
