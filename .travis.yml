@@ -5,3 +5,8 @@ sudo: false
 cache:
   directories:
     - node-modules
+script:
+  - yarn typecheck
+  - yarn lint
+  - yarn build
+  - yarn test
