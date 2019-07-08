@@ -95,7 +95,7 @@ export class DateOperand extends Operand {
   constructor(value: string) {
     super();
     this.value = value;
-    if (DATE_OPERAND_REGEXP.test(this.value)) {
+    if (!DATE_OPERAND_REGEXP.test(this.value)) {
       console.warn(
         "The given value does not match to the pattern for date literal",
         this.value
