@@ -3,8 +3,11 @@
   "version": "1.2.4",
   "description": "Securely build SOQL string from JSON-based query structure",
   "main": "lib/index.js",
+  "types": "lib/index.d.ts",
   "scripts": {
-    "build": "babel -d lib/ src/",
+    "build": "npm run build:lib && npm run build:types",
+    "build:lib": "babel -d lib/ src/",
+    "build:types": "tsc --project tsconfig.dts.json",
     "typecheck": "tsc --noEmit",
     "lint": "eslint --ext .ts src/ test/",
     "test": "jest"
