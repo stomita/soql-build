@@ -1,8 +1,0 @@
-{
-  "presets": ["env", "flow"],
-  "env": {
-    "test": {
-      "presets": ["power-assert"]
-    }
-  }
-}
