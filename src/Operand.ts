@@ -1,3 +1,4 @@
+import { DeepReadonly } from "utility-types";
 import QueryElement from "./QueryElement";
 
 /**
@@ -37,10 +38,16 @@ type OperandPrimitive =
  */
 export type OperandConfig = OperandPrimitive | OperandPrimitive[];
 
+function isArrayOperand(
+  o: DeepReadonly<OperandConfig>
+): o is DeepReadonly<OperandPrimitive[]> {
+  return Array.isArray(o);
+}
+
 /**
  *
  */
-export function createOperand(v: OperandConfig): Operand {
+export function createOperand(v: DeepReadonly<OperandConfig>): Operand {
   if (v == null) {
     return new NullOperand();
   } else if (typeof v === "string") {
@@ -49,7 +56,7 @@ export function createOperand(v: OperandConfig): Operand {
     return new NumberOperand(v);
   } else if (typeof v === "boolean") {
     return new BooleanOperand(v);
-  } else if (Array.isArray(v)) {
+  } else if (isArrayOperand(v)) {
     return new ArrayOperand(v);
   } else {
     return new DateOperand(v.value);
@@ -143,7 +150,7 @@ export class ArrayOperand extends Operand {
   /**
    *
    */
-  constructor(values: any[]) {
+  constructor(values: DeepReadonly<OperandPrimitive[]>) {
     super();
     this.values = values.map(v => createOperand(v));
   }
