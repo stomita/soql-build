@@ -1,3 +1,4 @@
+import { DeepReadonly } from "utility-types";
 import Condition from "./Condition";
 import buildCondition from "./buildCondition";
 import { NegateConditionConfig } from "./Condition";
@@ -7,7 +8,7 @@ export default class NegateCondition extends Condition {
   stripParens: boolean;
 
   constructor(
-    config: NegateConditionConfig,
+    config: DeepReadonly<NegateConditionConfig>,
     baseObjectName: string,
     stripParens: boolean
   ) {
