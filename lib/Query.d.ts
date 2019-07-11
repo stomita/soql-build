@@ -1,3 +1,4 @@
+import { DeepReadonly } from "utility-types";
 import QueryElement from "./QueryElement";
 import Field, { FieldConfig } from "./Field";
 import Condition, { ConditionConfig } from "./Condition";
@@ -31,7 +32,7 @@ export default class Query extends QueryElement {
     /**
      *
      */
-    constructor(config: QueryConfig);
+    constructor(config: DeepReadonly<QueryConfig>);
     /**
      *
      */

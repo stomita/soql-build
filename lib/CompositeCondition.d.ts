@@ -1,3 +1,4 @@
+import { DeepReadonly } from "utility-types";
 import Condition from "./Condition";
 import { CompositeConditionConfig } from "./Condition";
 /**
@@ -10,7 +11,7 @@ export default class CompositeCondition extends Condition {
     /**
      *
      */
-    constructor(config: CompositeConditionConfig, baseObjectName: string, stripParens?: boolean);
+    constructor(config: DeepReadonly<CompositeConditionConfig>, baseObjectName: string, stripParens?: boolean);
     /**
      *
      */

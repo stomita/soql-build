@@ -1,3 +1,4 @@
+import { DeepReadonly } from "utility-types";
 import Field from "./Field";
 import Condition, { SingleConditionConfig } from "./Condition";
 import Operand from "./Operand";
@@ -11,7 +12,7 @@ export default class SingleCondition extends Condition {
     /**
      *
      */
-    constructor(config: SingleConditionConfig, baseObjectName: string);
+    constructor(config: DeepReadonly<SingleConditionConfig>, baseObjectName: string);
     /**
      *
      */

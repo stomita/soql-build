@@ -1,6 +1,6 @@
 import QueryElement from "./QueryElement";
 import { OperandConfig } from "./Operand";
-import { FieldConfig } from "./Field";
+import { FieldReferenceConfig } from "./Field";
 /**
  *
  */
@@ -20,7 +20,7 @@ export declare type NegateConditionConfig = {
  */
 export declare type SingleConditionConfig = {
     operator: "=" | "!=" | "<" | "<=" | ">=" | ">" | "LIKE" | "IN" | "NOT IN" | "EXCLUDES" | "INCLUDES";
-    field: FieldConfig;
+    field: FieldReferenceConfig;
     value: OperandConfig;
 };
 /**

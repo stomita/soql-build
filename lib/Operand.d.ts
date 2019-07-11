@@ -1,3 +1,4 @@
+import { DeepReadonly } from "utility-types";
 import QueryElement from "./QueryElement";
 /**
  *
@@ -29,7 +30,7 @@ export declare type OperandConfig = OperandPrimitive | OperandPrimitive[];
 /**
  *
  */
-export declare function createOperand(v: OperandConfig): Operand;
+export declare function createOperand(v: DeepReadonly<OperandConfig>): Operand;
 /**
  *
  */
@@ -89,7 +90,7 @@ export declare class ArrayOperand extends Operand {
     /**
      *
      */
-    constructor(values: any[]);
+    constructor(values: DeepReadonly<OperandPrimitive[]>);
     /**
      *
      */
