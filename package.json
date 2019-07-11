@@ -23,6 +23,9 @@
     "module",
     "src"
   ],
+  "dependencies": {
+    "utility-types": "^3.7.0"
+  },
   "devDependencies": {
     "@babel/cli": "^7.5.0",
     "@babel/preset-env": "^7.5.0",
@@ -37,7 +40,6 @@
     "mocha": "^5.0.0",
     "npm-run-all": "^4.1.5",
     "prettier": "^1.18.2",
-    "typescript": "^3.5.2",
-    "utility-types": "^3.7.0"
+    "typescript": "^3.5.2"
   }
 }
