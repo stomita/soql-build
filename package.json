@@ -15,6 +15,8 @@
     "test": "jest"
   },
   "author": "Shinichi Tomita <shinichi.tomita@gmail.com>",
+  "repository": "https://github.com/stomita/soql-build",
+  "homepage": "https://github.com/stomita/soql-build",
   "license": "MIT",
   "files": [
     "lib",
