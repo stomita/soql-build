@@ -2,6 +2,8 @@ import QueryElement from "./QueryElement";
 import { ConditionConfig } from "./Condition";
 import { SortInfoConfig } from "./SortInfo";
 
+export type FieldPathConfig = string;
+
 export type FunctionFieldConfig = {
   type: "function";
   function: string;
@@ -11,7 +13,7 @@ export type FunctionFieldConfig = {
 
 export type SubqueryFieldConfig = {
   type: "subquery";
-  fields: FieldConfig[];
+  fields: FieldReferenceConfig[];
   relationship: string;
   condition?: ConditionConfig;
   sortInfo?: SortInfoConfig[];
@@ -19,6 +21,8 @@ export type SubqueryFieldConfig = {
   offset?: number;
 };
 
-export type FieldConfig = string | FunctionFieldConfig | SubqueryFieldConfig;
+export type FieldReferenceConfig = FieldPathConfig | FunctionFieldConfig;
+
+export type FieldConfig = FieldReferenceConfig | SubqueryFieldConfig;
 
 export default class Field extends QueryElement {}

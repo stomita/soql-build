@@ -1,12 +1,13 @@
+import { DeepReadonly } from "utility-types";
 import QueryElement from "./QueryElement";
-import Field from "./Field";
+import Field, { FieldReferenceConfig } from "./Field";
 import buildField from "./buildField";
 
 /**
  *
  */
 export type SortInfoConfig = {
-  field: string;
+  field: FieldReferenceConfig;
   direction?: "ASC" | "DESC";
   nullOrder?: "FIRST" | "LAST";
 };
@@ -22,7 +23,7 @@ export default class SortInfo extends QueryElement {
   /**
    *
    */
-  constructor(config: SortInfoConfig, baseObjectName: string) {
+  constructor(config: DeepReadonly<SortInfoConfig>, baseObjectName: string) {
     super();
     this.field = buildField(config.field, baseObjectName);
     this.direction = config.direction;

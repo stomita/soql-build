@@ -1,3 +1,4 @@
+import { DeepReadonly } from "utility-types";
 import Condition from "./Condition";
 import SingleCondition from "./SingleCondition";
 import NegateCondition from "./NegateCondition";
@@ -8,7 +9,7 @@ import { ConditionConfig, SingleConditionConfig } from "./Condition";
  *
  */
 export default function buildCondition(
-  config: ConditionConfig,
+  config: DeepReadonly<ConditionConfig>,
   baseObjectName: string,
   stripParens: boolean
 ): Condition {

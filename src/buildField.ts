@@ -1,5 +1,6 @@
+import { DeepReadonly } from "utility-types";
 import Field, { FieldConfig } from "./Field";
-import FieldReference from "./FieldReference";
+import FieldPath from "./FieldPath";
 import FunctionField from "./FunctionField";
 import SubqueryField from "./SubqueryField";
 
@@ -7,11 +8,11 @@ import SubqueryField from "./SubqueryField";
  *
  */
 export default function buildField(
-  config: FieldConfig,
+  config: DeepReadonly<FieldConfig>,
   baseObjectName: string
 ): Field {
   if (typeof config === "string") {
-    return new FieldReference(config, baseObjectName);
+    return new FieldPath(config, baseObjectName);
   } else if (config.type === "function") {
     return new FunctionField(config, baseObjectName);
   } else {

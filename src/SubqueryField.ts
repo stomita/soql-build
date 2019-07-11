@@ -1,3 +1,4 @@
+import { DeepReadonly } from "utility-types";
 import Field, { SubqueryFieldConfig } from "./Field";
 import Condition from "./Condition";
 import SortInfo from "./SortInfo";
@@ -18,7 +19,10 @@ export default class SubqueryField extends Field {
   /**
    *
    */
-  constructor(config: SubqueryFieldConfig, baseObjectName: string) {
+  constructor(
+    config: DeepReadonly<SubqueryFieldConfig>,
+    baseObjectName: string
+  ) {
     super();
     this.fields = config.fields.map(field => buildField(field, baseObjectName));
     this.relationship = config.relationship;

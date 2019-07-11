@@ -1,3 +1,4 @@
+import { DeepReadonly } from "utility-types";
 import Field, { FunctionFieldConfig } from "./Field";
 import buildField from "./buildField";
 
@@ -6,7 +7,10 @@ export default class FunctionField extends Field {
   arguments: Field[];
   alias: string | undefined;
 
-  constructor(config: FunctionFieldConfig, baseObjectName: string) {
+  constructor(
+    config: DeepReadonly<FunctionFieldConfig>,
+    baseObjectName: string
+  ) {
     super();
     this.function = config.function;
     this.arguments = (config.arguments || []).map(arg =>

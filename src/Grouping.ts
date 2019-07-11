@@ -1,3 +1,4 @@
+import { DeepReadonly } from "utility-types";
 import QueryElement from "./QueryElement";
 import Field, { FieldConfig } from "./Field";
 import Condition, { ConditionConfig } from "./Condition";
@@ -24,7 +25,7 @@ export default class Grouping extends QueryElement {
   /**
    *
    */
-  constructor(config: GroupingConfig, baseObjectName: string) {
+  constructor(config: DeepReadonly<GroupingConfig>, baseObjectName: string) {
     super();
     this.fields = config.fields.map(field => buildField(field, baseObjectName));
     this.subtotal = config.subtotal;
