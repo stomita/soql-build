@@ -1,4 +1,4 @@
-import type { DeepReadonly } from "utility-types";
+import type { DeepReadonly } from "ts-essentials";
 import Query from "./Query";
 import type { QueryConfig } from "./Query";
 import type { FieldConfig } from "./Field";

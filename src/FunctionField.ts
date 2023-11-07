@@ -1,4 +1,4 @@
-import type { DeepReadonly } from "utility-types";
+import type { DeepReadonly } from "ts-essentials";
 import Field, { type FunctionFieldConfig } from "./Field";
 import buildField from "./buildField";
 

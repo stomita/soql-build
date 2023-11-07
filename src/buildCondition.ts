@@ -1,4 +1,4 @@
-import type { DeepReadonly } from "utility-types";
+import type { DeepReadonly } from "ts-essentials";
 import Condition from "./Condition";
 import SingleCondition from "./SingleCondition";
 import NegateCondition from "./NegateCondition";
