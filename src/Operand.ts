@@ -39,7 +39,7 @@ type OperandPrimitive =
 export type OperandConfig = OperandPrimitive | OperandPrimitive[];
 
 function isArrayOperand(
-  o: DeepReadonly<OperandConfig>
+  o: DeepReadonly<OperandConfig>,
 ): o is DeepReadonly<OperandPrimitive[]> {
   return Array.isArray(o);
 }
@@ -152,21 +152,22 @@ export class ArrayOperand extends Operand {
    */
   constructor(values: DeepReadonly<OperandPrimitive[]>) {
     super();
-    this.values = values.map(v => createOperand(v));
+    this.values = values.map((v) => createOperand(v));
   }
 
   /**
    *
    */
   toSOQL() {
-    return "(" + this.values.map(o => o.toSOQL()).join(", ") + ")";
+    return "(" + this.values.map((o) => o.toSOQL()).join(", ") + ")";
   }
 }
 
 /**
  *
  */
-const DATE_OPERAND_REGEXP = /^(\d{4}-\d{2}-\d{2}(T\d{2}:?\d{2}:?\d{2}(\.\d+)?([+-]\d{2}:?\d{2}|Z))?|YESTERDAY|TODAY|TOMORROW|(NEXT|THIS|LAST)_(WEEK|MONTH|(FISCAL_)?(QUARTER|YEAR))|(NEXT|LAST)_90_DAYS|(NEXT|LAST)_N_(DAYS|WEEKS|MONTHS|(FISCAL_)?(QUARTERS|YEARS)):\d+)$/;
+const DATE_OPERAND_REGEXP =
+  /^(\d{4}-\d{2}-\d{2}(T\d{2}:?\d{2}:?\d{2}(\.\d+)?([+-]\d{2}:?\d{2}|Z))?|YESTERDAY|TODAY|TOMORROW|(NEXT|THIS|LAST)_(WEEK|MONTH|(FISCAL_)?(QUARTER|YEAR))|(NEXT|LAST)_90_DAYS|(NEXT|LAST)_N_(DAYS|WEEKS|MONTHS|(FISCAL_)?(QUARTERS|YEARS)):\d+)$/;
 
 /**
  *
@@ -183,7 +184,7 @@ export class DateOperand extends Operand {
     if (!DATE_OPERAND_REGEXP.test(this.value)) {
       console.warn(
         "The given value does not match to the pattern for date literal",
-        this.value
+        this.value,
       );
     }
   }

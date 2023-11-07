@@ -37,7 +37,9 @@ export default class SortInfo extends QueryElement {
     return [
       this.field.toSOQL(),
       ...(this.direction != null ? [this.direction.toUpperCase()] : []),
-      ...(this.nullOrder != null ? ["NULLS", this.nullOrder.toUpperCase()] : [])
+      ...(this.nullOrder != null
+        ? ["NULLS", this.nullOrder.toUpperCase()]
+        : []),
     ].join(" ");
   }
 }

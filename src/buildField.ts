@@ -9,7 +9,7 @@ import SubqueryField from "./SubqueryField";
  */
 export default function buildField(
   config: DeepReadonly<FieldConfig>,
-  baseObjectName: string
+  baseObjectName: string,
 ): Field {
   if (typeof config === "string") {
     return new FieldPath(config, baseObjectName);
