@@ -21,17 +21,19 @@ export default class SubqueryField extends Field {
    */
   constructor(
     config: DeepReadonly<SubqueryFieldConfig>,
-    baseObjectName: string
+    baseObjectName: string,
   ) {
     super();
-    this.fields = config.fields.map(field => buildField(field, baseObjectName));
+    this.fields = config.fields.map((field) =>
+      buildField(field, baseObjectName),
+    );
     this.relationship = config.relationship;
     if (config.condition) {
       this.condition = buildCondition(config.condition, baseObjectName, true);
     }
     if (config.sortInfo) {
       this.sortInfo = config.sortInfo.map(
-        sortInfo => new SortInfo(sortInfo, baseObjectName)
+        (sortInfo) => new SortInfo(sortInfo, baseObjectName),
       );
     }
     this.limit = config.limit;
@@ -46,19 +48,19 @@ export default class SubqueryField extends Field {
       "(" +
       [
         "SELECT",
-        this.fields.map(field => field.toSOQL()).join(", "),
+        this.fields.map((field) => field.toSOQL()).join(", "),
         "FROM",
         this.relationship,
         ...(this.condition ? ["WHERE", this.condition.toSOQL()] : []),
         ...(this.sortInfo && this.sortInfo.length > 0
-          ? ["ORDER BY", this.sortInfo.map(s => s.toSOQL()).join(", ")]
+          ? ["ORDER BY", this.sortInfo.map((s) => s.toSOQL()).join(", ")]
           : []),
         ...(typeof this.limit !== "undefined"
           ? ["LIMIT", String(this.limit)]
           : []),
         ...(typeof this.offset !== "undefined"
           ? ["OFFSET", String(this.offset)]
-          : [])
+          : []),
       ].join(" ") +
       ")"
     );

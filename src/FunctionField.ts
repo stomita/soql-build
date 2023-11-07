@@ -9,12 +9,12 @@ export default class FunctionField extends Field {
 
   constructor(
     config: DeepReadonly<FunctionFieldConfig>,
-    baseObjectName: string
+    baseObjectName: string,
   ) {
     super();
     this.function = config.function;
-    this.arguments = (config.arguments || []).map(arg =>
-      buildField(arg, baseObjectName)
+    this.arguments = (config.arguments || []).map((arg) =>
+      buildField(arg, baseObjectName),
     );
     this.alias = config.alias;
   }
@@ -23,7 +23,7 @@ export default class FunctionField extends Field {
     return (
       this.function +
       "(" +
-      this.arguments.map(arg => arg.toSOQL()).join(", ") +
+      this.arguments.map((arg) => arg.toSOQL()).join(", ") +
       ")"
     );
   }

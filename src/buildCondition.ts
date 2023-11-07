@@ -11,7 +11,7 @@ import { ConditionConfig, SingleConditionConfig } from "./Condition";
 export default function buildCondition(
   config: DeepReadonly<ConditionConfig>,
   baseObjectName: string,
-  stripParens: boolean
+  stripParens: boolean,
 ): Condition {
   if (config.operator === "NOT") {
     return new NegateCondition(config, baseObjectName, stripParens);

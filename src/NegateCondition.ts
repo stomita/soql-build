@@ -10,7 +10,7 @@ export default class NegateCondition extends Condition {
   constructor(
     config: DeepReadonly<NegateConditionConfig>,
     baseObjectName: string,
-    stripParens: boolean
+    stripParens: boolean,
   ) {
     super();
     this.condition = buildCondition(config.condition, baseObjectName, true);
