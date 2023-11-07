@@ -1,0 +1,14 @@
+name: Continuous Integration Workflow Script
+on: [push]
+jobs:
+  check-build-test:
+    runs-on: ubuntu-latest
+    steps:
+      - name: type check
+        run: yarn typecheck 
+      - name: lint
+        run: yarn lint
+      - name: build
+        run: yarn build
+      - name: test
+        run: yarn test
