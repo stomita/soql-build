@@ -17,7 +17,7 @@ export default class SingleCondition extends Condition {
    */
   constructor(
     config: DeepReadonly<SingleConditionConfig>,
-    baseObjectName: string
+    baseObjectName: string,
   ) {
     super();
     this.operator = config.operator;

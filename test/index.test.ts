@@ -11,7 +11,7 @@ describe("soql-builder", () => {
         {
           type: "function",
           function: "CALENDAR_YEAR",
-          arguments: ["CloseDate"]
+          arguments: ["CloseDate"],
         },
         {
           type: "subquery",
@@ -21,23 +21,23 @@ describe("soql-builder", () => {
             {
               type: "function",
               function: "toLabel",
-              arguments: ["Status"]
-            }
+              arguments: ["Status"],
+            },
           ],
           relationship: "ActivityHistories",
           condition: {
             operator: "=",
             field: "IsTask",
-            value: true
+            value: true,
           },
           sortInfo: [
             {
               field: "ActivityDate",
-              direction: "DESC"
-            }
+              direction: "DESC",
+            },
           ],
-          limit: 5
-        }
+          limit: 5,
+        },
       ],
       table: "Opportunity",
       condition: {
@@ -48,23 +48,23 @@ describe("soql-builder", () => {
             condition: {
               field: "Account.Name",
               operator: "LIKE",
-              value: "%a%"
-            }
+              value: "%a%",
+            },
           },
           {
             field: "Amount",
             operator: ">=",
-            value: 5000
+            value: 5000,
           },
           {
             field: "Type",
             operator: "!=",
-            value: null
+            value: null,
           },
           {
             field: "StageName",
             operator: "IN",
-            value: ["Prospecting", "Value Proposition", "Qualification"]
+            value: ["Prospecting", "Value Proposition", "Qualification"],
           },
           {
             operator: "OR",
@@ -72,12 +72,12 @@ describe("soql-builder", () => {
               {
                 field: "Account.Owner.Username",
                 operator: "!=",
-                value: "user01@example.com"
+                value: "user01@example.com",
               },
               {
                 field: "Account.Owner.IsActive",
                 operator: "=",
-                value: false
+                value: false,
               },
               {
                 operator: "AND",
@@ -87,36 +87,36 @@ describe("soql-builder", () => {
                     operator: ">=",
                     value: {
                       type: "date",
-                      value: "2008-01-01"
-                    }
+                      value: "2008-01-01",
+                    },
                   },
                   {
                     field: "CloseDate",
                     operator: "<",
                     value: {
                       type: "date",
-                      value: "TODAY"
-                    }
-                  }
-                ]
-              }
-            ]
-          }
-        ]
+                      value: "TODAY",
+                    },
+                  },
+                ],
+              },
+            ],
+          },
+        ],
       },
       sortInfo: [
         {
           field: "Account.Type",
           direction: "ASC",
-          nullOrder: "LAST"
+          nullOrder: "LAST",
         },
         {
           field: "Amount",
-          direction: "DESC"
-        }
+          direction: "DESC",
+        },
       ],
       limit: 1000,
-      offset: 50
+      offset: 50,
     };
 
     const expectedSOQL =
@@ -158,8 +158,8 @@ describe("soql-builder", () => {
         {
           type: "function",
           function: "MAX",
-          arguments: ["CreatedDate"]
-        }
+          arguments: ["CreatedDate"],
+        },
       ],
       table: "Account",
       grouping: {
@@ -169,15 +169,15 @@ describe("soql-builder", () => {
           field: {
             type: "function",
             function: "MAX",
-            arguments: ["CreatedDate"]
+            arguments: ["CreatedDate"],
           },
           operator: "<=",
           value: {
             type: "date",
-            value: "LAST_YEAR"
-          }
-        }
-      }
+            value: "LAST_YEAR",
+          },
+        },
+      },
     };
     const expectedSOQL =
       "SELECT MAX(CreatedDate) " +

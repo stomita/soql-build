@@ -27,7 +27,9 @@ export default class Grouping extends QueryElement {
    */
   constructor(config: DeepReadonly<GroupingConfig>, baseObjectName: string) {
     super();
-    this.fields = config.fields.map(field => buildField(field, baseObjectName));
+    this.fields = config.fields.map((field) =>
+      buildField(field, baseObjectName),
+    );
     this.subtotal = config.subtotal;
     if (config.having) {
       this.having = buildCondition(config.having, baseObjectName, true);
@@ -35,7 +37,7 @@ export default class Grouping extends QueryElement {
     if (this.subtotal && !/^(ROLLUP|CUBE)$/i.test(this.subtotal)) {
       console.warn(
         "The given value does not match to the grouping subtotal type",
-        this.subtotal
+        this.subtotal,
       );
     }
   }
@@ -48,9 +50,9 @@ export default class Grouping extends QueryElement {
       "GROUP BY",
       ...(this.subtotal ? [this.subtotal] : []),
       (this.subtotal ? "(" : "") +
-        this.fields.map(field => field.toSOQL()).join(", ") +
+        this.fields.map((field) => field.toSOQL()).join(", ") +
         (this.subtotal ? ")" : ""),
-      ...(this.having ? ["HAVING", this.having.toSOQL()] : [])
+      ...(this.having ? ["HAVING", this.having.toSOQL()] : []),
     ].join(" ");
   }
 }

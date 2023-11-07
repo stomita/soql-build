@@ -17,12 +17,12 @@ export default class CompositeCondition extends Condition {
   constructor(
     config: DeepReadonly<CompositeConditionConfig>,
     baseObjectName: string,
-    stripParens: boolean = false
+    stripParens: boolean = false,
   ) {
     super();
     this.operator = config.operator;
-    this.conditions = config.conditions.map(cond =>
-      buildCondition(cond, baseObjectName, false)
+    this.conditions = config.conditions.map((cond) =>
+      buildCondition(cond, baseObjectName, false),
     );
     this.stripParens = stripParens;
   }
@@ -32,7 +32,7 @@ export default class CompositeCondition extends Condition {
    */
   toSOQL() {
     const condition = this.conditions
-      .map(c => c.toSOQL())
+      .map((c) => c.toSOQL())
       .join(" " + this.operator + " ");
     return condition.length > 0 && !this.stripParens
       ? "(" + condition + ")"
