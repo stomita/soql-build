@@ -1,6 +1,6 @@
 import QueryElement from "./QueryElement";
-import { OperandConfig } from "./Operand";
-import { FieldReferenceConfig } from "./Field";
+import type { OperandConfig } from "./Operand";
+import type { FieldReferenceConfig } from "./Field";
 
 /**
  *

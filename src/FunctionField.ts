@@ -1,5 +1,5 @@
-import { DeepReadonly } from "utility-types";
-import Field, { FunctionFieldConfig } from "./Field";
+import type { DeepReadonly } from "utility-types";
+import Field, { type FunctionFieldConfig } from "./Field";
 import buildField from "./buildField";
 
 export default class FunctionField extends Field {

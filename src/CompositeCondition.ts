@@ -1,7 +1,7 @@
-import { DeepReadonly } from "utility-types";
+import type { DeepReadonly } from "utility-types";
 import Condition from "./Condition";
 import buildCondition from "./buildCondition";
-import { CompositeConditionConfig } from "./Condition";
+import type { CompositeConditionConfig } from "./Condition";
 
 /**
  *

@@ -1,4 +1,4 @@
-import { DeepReadonly } from "utility-types";
+import type { DeepReadonly } from "utility-types";
 import QueryElement from "./QueryElement";
 
 /**

@@ -1,5 +1,5 @@
-import { DeepReadonly } from "utility-types";
-import Field, { FieldConfig } from "./Field";
+import type { DeepReadonly } from "utility-types";
+import Field, { type FieldConfig } from "./Field";
 import FieldPath from "./FieldPath";
 import FunctionField from "./FunctionField";
 import SubqueryField from "./SubqueryField";

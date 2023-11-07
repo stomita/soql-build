@@ -1,7 +1,7 @@
-import { DeepReadonly } from "utility-types";
+import type { DeepReadonly } from "utility-types";
 import Condition from "./Condition";
 import buildCondition from "./buildCondition";
-import { NegateConditionConfig } from "./Condition";
+import type { NegateConditionConfig } from "./Condition";
 
 export default class NegateCondition extends Condition {
   condition: Condition;
