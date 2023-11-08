@@ -24,7 +24,7 @@
     "src"
   ],
   "dependencies": {
-    "utility-types": "^3.7.0"
+    "ts-essentials": "^9.4.1"
   },
   "devDependencies": {
     "@babel/cli": "^7.23.0",

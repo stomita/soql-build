@@ -1,24 +1,24 @@
 import QueryElement from "./QueryElement";
-import { OperandConfig } from "./Operand";
-import { FieldReferenceConfig } from "./Field";
+import type { OperandConfig } from "./Operand";
+import type { FieldReferenceConfig } from "./Field";
 /**
  *
  */
-export declare type CompositeConditionConfig = {
+export type CompositeConditionConfig = {
     operator: "AND" | "OR";
     conditions: ConditionConfig[];
 };
 /**
  *
  */
-export declare type NegateConditionConfig = {
+export type NegateConditionConfig = {
     operator: "NOT";
     condition: ConditionConfig;
 };
 /**
  *
  */
-export declare type SingleConditionConfig = {
+export type SingleConditionConfig = {
     operator: "=" | "!=" | "<" | "<=" | ">=" | ">" | "LIKE" | "IN" | "NOT IN" | "EXCLUDES" | "INCLUDES";
     field: FieldReferenceConfig;
     value: OperandConfig;
@@ -26,7 +26,7 @@ export declare type SingleConditionConfig = {
 /**
  *
  */
-export declare type ConditionConfig = CompositeConditionConfig | NegateConditionConfig | SingleConditionConfig;
+export type ConditionConfig = CompositeConditionConfig | NegateConditionConfig | SingleConditionConfig;
 /**
  *
  */

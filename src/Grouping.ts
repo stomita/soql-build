@@ -1,7 +1,7 @@
-import { DeepReadonly } from "utility-types";
+import type { DeepReadonly } from "ts-essentials";
 import QueryElement from "./QueryElement";
-import Field, { FieldConfig } from "./Field";
-import Condition, { ConditionConfig } from "./Condition";
+import Field, { type FieldConfig } from "./Field";
+import Condition, { type ConditionConfig } from "./Condition";
 import buildField from "./buildField";
 import buildCondition from "./buildCondition";
 

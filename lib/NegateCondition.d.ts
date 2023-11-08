@@ -1,6 +1,6 @@
-import { DeepReadonly } from "utility-types";
+import type { DeepReadonly } from "ts-essentials";
 import Condition from "./Condition";
-import { NegateConditionConfig } from "./Condition";
+import type { NegateConditionConfig } from "./Condition";
 export default class NegateCondition extends Condition {
     condition: Condition;
     stripParens: boolean;

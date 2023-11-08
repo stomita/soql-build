@@ -1,11 +1,11 @@
-import { DeepReadonly } from "utility-types";
+import type { DeepReadonly } from "ts-essentials";
 import Query from "./Query";
-import { QueryConfig } from "./Query";
-import { FieldConfig } from "./Field";
-import { ConditionConfig } from "./Condition";
+import type { QueryConfig } from "./Query";
+import type { FieldConfig } from "./Field";
+import type { ConditionConfig } from "./Condition";
 
 export function buildSOQL(query: DeepReadonly<QueryConfig>) {
   return new Query(query).toSOQL();
 }
 
-export { Query, QueryConfig, FieldConfig, ConditionConfig };
+export { Query, type QueryConfig, type FieldConfig, type ConditionConfig };

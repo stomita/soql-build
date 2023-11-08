@@ -1,5 +1,5 @@
-import { DeepReadonly } from "utility-types";
-import Field, { FieldConfig } from "./Field";
+import type { DeepReadonly } from "ts-essentials";
+import Field, { type FieldConfig } from "./Field";
 /**
  *
  */

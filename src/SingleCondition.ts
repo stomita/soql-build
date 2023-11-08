@@ -1,6 +1,6 @@
-import { DeepReadonly } from "utility-types";
+import type { DeepReadonly } from "ts-essentials";
 import Field from "./Field";
-import Condition, { SingleConditionConfig } from "./Condition";
+import Condition, { type SingleConditionConfig } from "./Condition";
 import Operand, { createOperand } from "./Operand";
 import buildField from "./buildField";
 

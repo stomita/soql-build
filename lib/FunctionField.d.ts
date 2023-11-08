@@ -1,5 +1,5 @@
-import { DeepReadonly } from "utility-types";
-import Field, { FunctionFieldConfig } from "./Field";
+import type { DeepReadonly } from "ts-essentials";
+import Field, { type FunctionFieldConfig } from "./Field";
 export default class FunctionField extends Field {
     function: string;
     arguments: Field[];

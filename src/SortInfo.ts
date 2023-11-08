@@ -1,6 +1,6 @@
-import { DeepReadonly } from "utility-types";
+import type { DeepReadonly } from "ts-essentials";
 import QueryElement from "./QueryElement";
-import Field, { FieldReferenceConfig } from "./Field";
+import Field, { type FieldReferenceConfig } from "./Field";
 import buildField from "./buildField";
 
 /**

@@ -1,6 +1,6 @@
-import { DeepReadonly } from "utility-types";
+import type { DeepReadonly } from "ts-essentials";
 import Condition from "./Condition";
-import { CompositeConditionConfig } from "./Condition";
+import type { CompositeConditionConfig } from "./Condition";
 /**
  *
  */

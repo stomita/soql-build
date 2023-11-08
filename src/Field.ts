@@ -1,6 +1,6 @@
 import QueryElement from "./QueryElement";
-import { ConditionConfig } from "./Condition";
-import { SortInfoConfig } from "./SortInfo";
+import type { ConditionConfig } from "./Condition";
+import type { SortInfoConfig } from "./SortInfo";
 
 export type FieldPathConfig = string;
 

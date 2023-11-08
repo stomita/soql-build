@@ -1,5 +1,5 @@
-import { DeepReadonly } from "utility-types";
-import Field, { SubqueryFieldConfig } from "./Field";
+import type { DeepReadonly } from "ts-essentials";
+import Field, { type SubqueryFieldConfig } from "./Field";
 import Condition from "./Condition";
 import SortInfo from "./SortInfo";
 import buildField from "./buildField";
