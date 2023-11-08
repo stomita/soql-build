@@ -1,4 +1,4 @@
-import { DeepReadonly } from "utility-types";
+import type { DeepReadonly } from "ts-essentials";
 import QueryElement from "./QueryElement";
 /**
  *
@@ -8,25 +8,25 @@ export default class Operand extends QueryElement {
 /**
  *
  */
-export declare type DateOperandConfig = {
+export type DateOperandConfig = {
     type: "date";
     value: string;
 };
 /**
  *
  */
-export declare type DatetimeOperandConfig = {
+export type DatetimeOperandConfig = {
     type: "datetime";
     value: string;
 };
 /**
  *
  */
-declare type OperandPrimitive = null | string | number | boolean | DateOperandConfig | DatetimeOperandConfig;
+type OperandPrimitive = null | string | number | boolean | DateOperandConfig | DatetimeOperandConfig;
 /**
  *
  */
-export declare type OperandConfig = OperandPrimitive | OperandPrimitive[];
+export type OperandConfig = OperandPrimitive | OperandPrimitive[];
 /**
  *
  */

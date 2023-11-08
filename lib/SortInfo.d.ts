@@ -1,10 +1,10 @@
-import { DeepReadonly } from "utility-types";
+import type { DeepReadonly } from "ts-essentials";
 import QueryElement from "./QueryElement";
-import Field, { FieldReferenceConfig } from "./Field";
+import Field, { type FieldReferenceConfig } from "./Field";
 /**
  *
  */
-export declare type SortInfoConfig = {
+export type SortInfoConfig = {
     field: FieldReferenceConfig;
     direction?: "ASC" | "DESC";
     nullOrder?: "FIRST" | "LAST";

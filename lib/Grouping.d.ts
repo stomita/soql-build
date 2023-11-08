@@ -1,11 +1,11 @@
-import { DeepReadonly } from "utility-types";
+import type { DeepReadonly } from "ts-essentials";
 import QueryElement from "./QueryElement";
-import Field, { FieldConfig } from "./Field";
-import Condition, { ConditionConfig } from "./Condition";
+import Field, { type FieldConfig } from "./Field";
+import Condition, { type ConditionConfig } from "./Condition";
 /**
  *
  */
-export declare type GroupingConfig = {
+export type GroupingConfig = {
     fields: FieldConfig[];
     subtotal?: string;
     having?: ConditionConfig;

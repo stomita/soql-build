@@ -1,13 +1,13 @@
-import { DeepReadonly } from "utility-types";
+import type { DeepReadonly } from "ts-essentials";
 import QueryElement from "./QueryElement";
-import Field, { FieldConfig } from "./Field";
-import Condition, { ConditionConfig } from "./Condition";
-import SortInfo, { SortInfoConfig } from "./SortInfo";
-import Grouping, { GroupingConfig } from "./Grouping";
+import Field, { type FieldConfig } from "./Field";
+import Condition, { type ConditionConfig } from "./Condition";
+import SortInfo, { type SortInfoConfig } from "./SortInfo";
+import Grouping, { type GroupingConfig } from "./Grouping";
 /**
  *
  */
-export declare type QueryConfig = {
+export type QueryConfig = {
     fields: FieldConfig[];
     table: string;
     scope?: string;

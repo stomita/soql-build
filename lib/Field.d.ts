@@ -1,14 +1,14 @@
 import QueryElement from "./QueryElement";
-import { ConditionConfig } from "./Condition";
-import { SortInfoConfig } from "./SortInfo";
-export declare type FieldPathConfig = string;
-export declare type FunctionFieldConfig = {
+import type { ConditionConfig } from "./Condition";
+import type { SortInfoConfig } from "./SortInfo";
+export type FieldPathConfig = string;
+export type FunctionFieldConfig = {
     type: "function";
     function: string;
     alias?: string;
     arguments?: FieldConfig[];
 };
-export declare type SubqueryFieldConfig = {
+export type SubqueryFieldConfig = {
     type: "subquery";
     fields: FieldReferenceConfig[];
     relationship: string;
@@ -17,7 +17,7 @@ export declare type SubqueryFieldConfig = {
     limit?: number;
     offset?: number;
 };
-export declare type FieldReferenceConfig = FieldPathConfig | FunctionFieldConfig;
-export declare type FieldConfig = FieldReferenceConfig | SubqueryFieldConfig;
+export type FieldReferenceConfig = FieldPathConfig | FunctionFieldConfig;
+export type FieldConfig = FieldReferenceConfig | SubqueryFieldConfig;
 export default class Field extends QueryElement {
 }
